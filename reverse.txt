@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include <stdlib.h>
+int main()
+{
+	void reverse(int *p, int n);
+	int *a, *p2;
+	int i, n2;
+	printf("请输入你所换数字个数：");
+	scanf_s("%d", &n2);
+	a = (unsigned int*)malloc(sizeof(unsigned int) * n2);//申请内存
+	printf("请依次输入%d个数字：", n2);
+	for (i = 0; i < n2; i++)
+		scanf_s("%d", a + i);
+	reverse(a, n2);
+	for (p2 = a; p2 < a + n2; p2++)
+		printf("%d,", *p2);
+	free(a);
+	system("pause");
+	return 0;
+
+}
+
+/*int main()
+{
+	void reverse(int *p, int n);
+	int *p2;
+	int a[10];
+	int i;
+	printf("请依次输入10个数字：");
+	for (i = 0; i < 10; i++)
+		scanf_s("%d", a + i);
+	reverse(a, 10);
+	for (p2=a; p2<a+10; p2++)
+		printf("%d,",*p2);
+	system("pause");
+	return 0;
+
+}*/
+
+void reverse(int *p, int n) {
+	int m = (n-1 )/ 2;
+	int i,c;
+	for (i = 0; i <= m; i++)
+	{
+		c = *(p + i);
+		*(p + i )= *(p + n -1- i);
+		*(p + n-1 - i) = c;
+	}
+}

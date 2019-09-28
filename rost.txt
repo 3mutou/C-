@@ -1,0 +1,30 @@
+#include<stdio.h>
+int main(){
+	void sort(int *point2); 
+	int *point1;
+	int a[3];
+	point1=a;
+	int i=0;
+	printf("请依次输入3个数：");
+	for(i=0;i<3;i++)
+	   scanf("%d",a+i);
+	sort(a);
+	for(i=0;i<3;i++)
+	   printf("%d\n",*point1++);
+    printf("%d,%d,%d",a[0],a[1],a[2]);
+	return 0;
+} 
+
+void sort(int *point2){
+	void sort2(int *point3,int *point4);
+	if(*point2<*(point2+1))  sort2(point2,point2+1);
+	if(*(point2)<*(point2+2)) sort2(point2,point2+2);
+	if(*(point2+1)<*(point2+2))  sort2(point2+1,point2+2);
+}
+
+void sort2(int *point3,int *point4){
+	int c;
+	c=*point3;
+	*point3=*point4;
+	*point4=c;
+}
